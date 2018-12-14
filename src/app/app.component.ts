@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center">
+    <!-- <div style="text-align:center">
       <h1>
         Welcome to {{title}}!
       </h1>
@@ -22,6 +22,7 @@ import { Component } from '@angular/core';
         <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
       </li>
     </ul>
+    -->
     <router-outlet></router-outlet>
   `,
   styles: []
