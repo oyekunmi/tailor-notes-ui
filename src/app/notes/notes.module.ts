@@ -5,14 +5,21 @@ import { NotesRoutingModule } from './notes-routing.module';
 import { NotesComponent } from './notes.component';
 import { NoteComponent } from './note.component';
 import { NoteResolver } from './note-resolver.service';
+import { NoteService } from './note.service';
+
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatSidenavModule,
+} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
-    NotesRoutingModule
+    NotesRoutingModule,
+    MatIconModule
   ],
-  providers: [NoteResolver],
+  providers: [NoteResolver, NoteService],
   declarations: [NotesComponent, NoteComponent]
-  //entryComponents: [NotesComponent]
 })
 export class NotesModule { }

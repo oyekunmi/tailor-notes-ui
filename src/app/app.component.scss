@@ -1,0 +1,37 @@
+:host{
+  height: 100%;
+  width: 100%;
+  
+  .blur {
+    /* All the background image supports */
+    background-image: linear-gradient(to top right, rgba(6, 85, 223, 0.6)0%, rgba(22, 40, 117, 0.8) 45%, rgba(6, 85, 223, 0.6) 60%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(50px);
+    // top: -5px;
+    // right: -5px;
+    // left: -5px;
+    // padding: 5px;
+  }
+  
+  .blur:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1001;
+    background-image: linear-gradient(339deg, rgba(43, 40, 50, 0.8) 0%, rgba(43, 40, 50, 0.4) 46%, rgba(0, 0, 0, 0.05) 50%);
+    filter: blur(70px);
+  }
+
+}
+
+.container{
+    display: grid;
+    height: 100vh;
+    grid-row-gap: 10px;
+    grid-template-rows: auto auto 50px;
+    color: black; 
+    z-index: 1001
+}
