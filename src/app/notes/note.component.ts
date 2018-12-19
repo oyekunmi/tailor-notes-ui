@@ -17,9 +17,11 @@ import { MeasurementClass, Measure } from './note.model';
           </div>
         </div>
 
+        <!--
         <div class="note-full" *ngIf="show">
           Full note information
         </div>
+        -->
 
       </div>
     </article>

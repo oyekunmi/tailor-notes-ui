@@ -17,7 +17,38 @@ export class NoteService {
         {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
         {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
         {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
-      ]}
+      ]},
+      { id: "axvdtt", name: "Lateefah Raheem", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+      { id: "axvdtt", name: "Lateefah Raheem", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+      { id: "axvdtt", name: "Lateefah Raheem", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+      { id: "shams", name: "Oyesola Ogundele", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}}
+      ]},
+      { id: "ascbhsdj", name: "Ajani Akeem", measures: [
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}}
+      ]},
+      { id: "axvdtt", name: "Eze Emanuel", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+      { id: "axvdtt", name: "Obiakor Chizaram", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
     ]
 
     // return Observable.of(measures);

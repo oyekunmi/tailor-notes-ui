@@ -29,10 +29,9 @@
 
 .container{
     display: grid;
-    height: 100vh;
+    // height: 100vh; //add height causes white background after scroll
     grid-row-gap: 20px;
-    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-rows: 1fr auto 1fr;
     color: black; 
     background-color:#DCDCDC;
-
 }

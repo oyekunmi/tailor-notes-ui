@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
         <router-outlet></router-outlet>
       </div>
       <div class="footer">
-
+        <!-- Footer -->
       </div>
     </div>
   `,

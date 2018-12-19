@@ -11,7 +11,7 @@ article.note-teaser{
     display: grid;
     grid-template-columns: 1fr 9fr;
     column-gap: 10px;
-    font-size: 0.8em;
+    font-size: 1em;
     cursor: pointer;
 
     .note-image{
@@ -32,12 +32,12 @@ article.note-teaser{
         .field{
             display: inline-block;
             margin: 0 5px 0 0;
-            padding: 3px;
+            padding: 5px;
             background: #2AA330;
             color: #fff;
             border-radius: 10px;
-            font-size: 0.6em;
-            
+            font-size: 0.7em;
+
             label{
                 // font-weight: bold;
             }
