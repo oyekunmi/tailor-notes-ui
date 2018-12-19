@@ -8,16 +8,18 @@ import { NoteResolver } from './note-resolver.service';
 import { NoteService } from './note.service';
 
 import {
-  MatButtonModule,
+  MatExpansionModule,
   MatIconModule,
-  MatSidenavModule,
+  MatFormFieldModule,
 } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     NotesRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule,
+    MatFormFieldModule
   ],
   providers: [NoteResolver, NoteService],
   declarations: [NotesComponent, NoteComponent]

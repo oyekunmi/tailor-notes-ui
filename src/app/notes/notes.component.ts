@@ -9,10 +9,8 @@ import { ContextService } from '../shared';
 @Component({
   selector: 'app-notes',
   template: `
-    <div *ngIf="(notes | async) as notes; else loadingOrError">
-      <div class="row"  *ngFor="let note of notes">
-        <app-note></app-note>
-      </div>
+    <div class="notes-list" *ngIf="(notes | async) as notes; else loadingOrError">
+        <app-note *ngFor="let note of notes" [note]=note></app-note>
     </div>
       
     <ng-template #loadingOrError>

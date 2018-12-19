@@ -14,3 +14,9 @@
       height    : 35px;
     }
   }
+
+  :host{
+    .notes-list{
+      padding: 0 5px;
+    }
+  }

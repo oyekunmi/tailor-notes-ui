@@ -31,7 +31,7 @@
     display: grid;
     height: 100vh;
     grid-row-gap: 10px;
-    grid-template-rows: auto auto 50px;
+    grid-template-rows: 1fr 8fr 1fr;
     color: black; 
     z-index: 1001
 }

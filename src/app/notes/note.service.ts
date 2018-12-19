@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/internal/operators';
-import { Note } from './note.model';
+import { Note, MeasurementClass } from './note.model';
 
 @Injectable()
 export class NoteService {
@@ -10,15 +10,14 @@ export class NoteService {
 
   public getNotes(count?: number): Observable<Note[]>{
 
-    const notes = [
-      { id: "shams", name: "Oyesola Ogundele", height: 8, waist: 10},
-      { id: "ascbhsdj", name: "Ajani Akeem", height: 7, waist: 20},
-      { id: "axvdtt", name: "Lateefah Raheem", height: 6, waist: 32},
+    const measures = [
+      { id: "shams", name: "Oyesola Ogundele", height: 8},
+      { id: "ascbhsdj", name: "Ajani Akeem", height: 7},
+      { id: "axvdtt", name: "Lateefah Raheem", height: 6},
     ]
 
-    // const notes = new
-    // return Observable.throw(notes);
-    return Observable.of(notes).pipe(
+    // return Observable.of(measures);
+    return Observable.of(measures).pipe(
       map( data =>  data.filter((item) => item.id !== '') ),
       catchError( this.handleError('getNotes') )
    ) as Observable<Note[]>;
