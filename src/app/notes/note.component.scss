@@ -1,7 +1,27 @@
 :host{
-    
+
 }
- 
+
 article.note-teaser{
-    margin: 0 5px;
+    // margin: 0 5px;
+    background: #fff;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    column-gap: 10px;
+    font-size: 0.8em;
+
+    .note-image{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        mat-icon{
+            font-size: 3em;
+            height: auto;
+            width: auto; 
+        }
+    }
 }
