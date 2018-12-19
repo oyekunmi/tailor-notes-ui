@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Note } from './note.model';
+import { MeasurementClass, Measure } from './note.model';
 
 @Component({ 
   selector: 'app-note',
@@ -10,9 +10,14 @@ import { Note } from './note.model';
       </div>
       <div class="note-content">
         <div class="note-ttle"> {{note.name}} </div>
-        <div class="note-summary"> some text here </div>
+        <div class="note-summary">
+          <div class="field" *ngFor="let item of summaryItems">
+            <label> {{item.name | titlecase }}: </label>
+            <span> {{item.value}} {{ item.unit.id }} </span>
+          </div>
+        </div>
 
-        <div class="note-full">
+        <div class="note-full" *ngIf="show">
           Full note information
         </div>
 
@@ -23,12 +28,15 @@ import { Note } from './note.model';
 })
 export class NoteComponent implements OnInit {
 
-  @Input() note: Note;
+  @Input() note: MeasurementClass;
+  summaryItems: Measure[];
 
-  constructor() { }
-
-  ngOnInit() {
-
+  constructor() { 
   }
 
+  ngOnInit() {
+    this.summaryItems = this.note.measures.filter((x,i)=>i<3);
+  }
+
+  
 }

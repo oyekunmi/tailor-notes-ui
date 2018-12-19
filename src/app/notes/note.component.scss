@@ -12,6 +12,7 @@ article.note-teaser{
     grid-template-columns: 1fr 9fr;
     column-gap: 10px;
     font-size: 0.8em;
+    cursor: pointer;
 
     .note-image{
         display: flex;
@@ -24,4 +25,25 @@ article.note-teaser{
             width: auto; 
         }
     }
+
+    .note-summary{
+        margin-top: 5px;
+
+        .field{
+            display: inline-block;
+            margin: 0 5px 0 0;
+            padding: 3px;
+            background: #2AA330;
+            color: #fff;
+            border-radius: 10px;
+            font-size: 0.6em;
+            
+            label{
+                // font-weight: bold;
+            }
+        }
+    }
+
 }
+
+// box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];
