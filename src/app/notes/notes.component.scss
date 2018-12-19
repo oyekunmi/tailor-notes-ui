@@ -1,0 +1,22 @@
+.error-plate {
+    padding     : 15px;
+    background  : #bf3c3c;
+    margin      : 15px;
+    color       : #fff;
+    font-size   : 16px;
+    font-weight : 500;
+    span {
+      vertical-align : 10px;
+    }
+    mat-icon {
+      font-size : 35px;
+      width     : 50px;
+      height    : 35px;
+    }
+  }
+
+  :host{
+    .notes-list{
+      padding: 0 5px;
+    }
+  }

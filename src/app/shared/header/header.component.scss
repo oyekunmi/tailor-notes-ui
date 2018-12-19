@@ -1,0 +1,122 @@
+:host {
+  // position : fixed;
+  width    : 100%;
+  z-index  : 1;
+  // top      : 0;
+  // background-color: rgba(101, 87, 234, 0.7);
+}
+  
+#page-header{
+
+  display: flex;
+  align-items: center;
+  color: #fff;
+
+  .row{
+    
+    &.first-row {
+
+      display: flex;
+      align-items: center;  /* vertical alignment */
+      width: 100%;      
+      margin: 10px 0;
+      padding: 0 5px;
+
+      .item {
+        flex: 1; //give all items equal width
+        // background: #eee;
+        box-sizing: border-box; //makes padding part of the width of each item
+        margin:0 5px;
+
+        &.logo{
+          flex: none; /* make this flex item inflexible, so width property controls its width entirely */
+          width: 40px;
+          text-align: center;
+        }
+      }
+
+      .mat-icon{
+        font-size: 30px;
+        width: auto;
+      }
+
+      .logo{
+        color: rgba(0, 68, 102, 0.9);
+        padding: 10px;
+        border-radius: 100px;
+        border: solid thin rgba(0, 68, 102, 0.9);
+      }
+
+      .search{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        a{
+          padding: 0 0 0 10px;
+        }
+      }
+
+
+    }
+  }
+}
+//   #page-header {
+//     a {
+//       color : #000000;
+//     }
+//     nav {
+//       display          : flex;
+//       height           : 100px;
+//       background-color : #ff5454;
+//       box-shadow       : 0 0 4px rgba(0, 0, 0, 0.2);
+//       border-bottom    : 1px solid #f9e5c0;
+//       color            : #333;
+//     }
+//     .logo {
+//       width : 140px;
+//     }
+//     .logo-bg {
+//       padding    : 6px 15px 5px;
+//       position   : relative;
+//       width      : 225px;
+//       height     : 52px;
+//       background : #A10B0B;
+//       outline    : 0;
+//       cursor     : pointer;
+//       &:before {
+//         position      : absolute;
+//         top           : 0;
+//         right         : 0;
+//         border-bottom : 52px solid #ff5454;
+//         border-left   : 55px solid #bf3c3c;
+//         width         : 0;
+//         content       : '';
+//         box-shadow    : -4px -5px 4px rgba(0, 0, 0, 0.2);
+//       }
+//     }
+//     .opened-module-title {
+//       color       : #f9e5c0;
+//       font-weight : 900;
+//       font-size   : 16px;
+//       z-index     : 1;
+//       padding     : 18px 0;
+//       cursor      : default;
+//     }
+//     .menu-toggle {
+//       margin        : 0 0 0 auto;
+//       width         : 52px;
+//       min-width     : auto;
+//       height        : auto;
+//       border-radius : 0;
+//       color         : #fdfbec;
+//       background    : #ff5454;
+//       transition    : background-color .15s ease-in-out;
+//       &:hover {
+//         background : #bf3c3c;
+//       }
+//       mat-icon {
+//         margin-top : -3px;
+//       }
+//     }
+//   }
+  
