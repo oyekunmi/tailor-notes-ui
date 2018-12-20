@@ -5,4 +5,5 @@ import { Subject } from 'rxjs';
 export class ContextService {
     public moduleTitle: Subject<string> = new Subject<string>();
     public sidebarState: Subject<boolean> = new Subject<boolean>();
+    public showBackBtn: Subject<boolean> = new Subject<boolean>();
 }

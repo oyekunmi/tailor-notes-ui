@@ -38,7 +38,10 @@ export class NotesComponent implements OnInit {
   constructor(private noteService: NoteService, private appContext: ContextService) { }
 
   ngOnInit() {
+
     this.appContext.moduleTitle.next("Measurements");
+    this.appContext.showBackBtn.next(false);
+
     this.notes = this.noteService.getNotes().pipe(
       catchError((error: any) => {
         this.loadingError$.next(true);

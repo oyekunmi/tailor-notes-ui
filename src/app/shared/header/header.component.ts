@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContextService } from '../context.service';
 import { Subject } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,17 @@ import { Subject } from 'rxjs';
   <div id="page-header">
 
     <div class="first-row row">
-     
-      <a mat-icon-button class="menu-toggle item" (click)="toggleNav()">
-        <mat-icon >reorder</mat-icon>
-      </a>
+      
+      <div class="item">
+        <a mat-icon-button class="menu-toggle" (click)="toggleNav()">
+          <!-- <mat-icon >reorder</mat-icon> -->
+        </a>
+
+        <a mat-icon-button class="menu-toggle" (click)="goBack()" *ngIf="showBackBtn$ | async">
+          <mat-icon>arrow_back</mat-icon>
+        </a>
+
+      </div>
   
       <div class="logo item">
         T
@@ -20,34 +28,30 @@ import { Subject } from 'rxjs';
 
       <div class="search item">
 
-        <!--
-        <a mat-icon-button class="menu-toggle">
-          <mat-icon>settings</mat-icon>
-        </a>
-        -->
-
-        <a mat-icon-button class="menu-toggle">
+        <a mat-icon-button class="menu-toggle"  (click)="toggleNav()">
           <mat-icon >settings</mat-icon>
         </a>
        
       </div>
     </div>
-    <!-- <div class="second-row row"> content</div> -->
+
   </div>
   `,
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent{
 
   public title$: Subject<string> = this.appContext.moduleTitle;
-  constructor(private appContext: ContextService) {}
+  public showBackBtn$: Subject<boolean> = this.appContext.showBackBtn;
 
-  ngOnInit() {
-
-  }
+  constructor(private appContext: ContextService, private location: Location) {}
 
   toggleNav(){
     this.appContext.sidebarState.next(true);
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContextService } from '../shared';
 
 @Component({
   selector: 'app-add-note',
@@ -11,9 +12,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNoteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appContext: ContextService) { }
 
   ngOnInit() {
+    this.appContext.showBackBtn.next(true);
   }
 
 }
