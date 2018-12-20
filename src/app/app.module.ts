@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule, MatSidenavModule } from '@angular/material';
-import { ContextService, HeaderComponent } from './shared';
+import { ContextService, HeaderComponent, NavComponent } from './shared';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

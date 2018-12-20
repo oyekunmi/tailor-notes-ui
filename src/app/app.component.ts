@@ -6,7 +6,7 @@ import { MatSidenav } from '@angular/material';
   selector: 'app-root',
   template: `
   <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="push" >Sidenav content</mat-sidenav>
+    <mat-sidenav #sidenav mode="push" ><app-side-nav></app-side-nav></mat-sidenav>
     <mat-sidenav-content>
       <div class="container">
         <app-header></app-header>
