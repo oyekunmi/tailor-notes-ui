@@ -30,16 +30,18 @@ article.note-teaser{
         margin-top: 5px;
 
         .field{
-            display: inline-block;
-            margin: 0 5px 0 0;
-            padding: 5px;
-            // background: #2AA330;
-            // color: #fff;
-            border-radius: 10px;
-            font-size: 0.7em;
-            border: dashed thin #2AA330;
+           
 
         }
+    }
+
+    .note-full{
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: solid thin #2AA330;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
     }
 
 }

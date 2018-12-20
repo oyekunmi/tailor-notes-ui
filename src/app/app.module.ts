@@ -13,7 +13,7 @@ import { ContextService, HeaderComponent, NavComponent } from './shared';
     HeaderComponent,
     NavComponent
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

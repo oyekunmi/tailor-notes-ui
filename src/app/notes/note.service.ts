@@ -17,6 +17,8 @@ export class NoteService {
         {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
         {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
         {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
       ]},
       { id: "axvdtt", name: "Lateefah Raheem", measures: [ 
         {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
