@@ -1,0 +1,4 @@
+#Thu Dec 20 19:30:50 WAT 2018
+base.0=C\:\\Users\\IFEANYI\\Desktop\\tailor-notes\\_old\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
