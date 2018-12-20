@@ -9,6 +9,10 @@ import { ContextService } from '../shared';
 @Component({
   selector: 'app-notes',
   template: `
+    <aside class="floating-nav">
+      <a href=""><mat-icon>add_circle</mat-icon></a>
+    </aside>
+
     <div class="notes-list" *ngIf="(notes | async) as notes; else loadingOrError">
         <app-note *ngFor="let note of notes" [note]=note></app-note>
     </div>

@@ -13,9 +13,8 @@ import { MatSidenav } from '@angular/material';
         <div class="content">
           <router-outlet></router-outlet>
         </div>
-        <div class="footer">
-          <!-- Footer -->
-        </div>
+        <footer class="footer">
+        </footer>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
