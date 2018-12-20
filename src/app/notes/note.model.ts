@@ -4,13 +4,13 @@ export interface Note{
     height: number;
 }
 
-export class Measure{
+export interface Measure{
     name: string;
     value: number;
     unit: Unit;
 }
 
-export class Unit{
+export interface Unit{
     id: string;
     name: string;
 }

@@ -1,21 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { ContextService } from './shared';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-root',
   template: `
-    <div class="blur"></div>
-    <div class="container">
-      <app-header></app-header>
-      <div class="content">
-        <router-outlet></router-outlet>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="push" >Sidenav content</mat-sidenav>
+    <mat-sidenav-content>
+      <div class="container">
+        <app-header></app-header>
+        <div class="content">
+          <router-outlet></router-outlet>
+        </div>
+        <div class="footer">
+          <!-- Footer -->
+        </div>
       </div>
-      <div class="footer">
-        <!-- Footer -->
-      </div>
-    </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
   `,
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
   title = 'tailor-notes-ui';
+  @ViewChild(MatSidenav) sidenav: MatSidenav;
+
+  constructor(private appContext: ContextService){
+  }
+
+  ngAfterViewInit(){
+    this.appContext.sidebarState.subscribe(x=> this.sidenav.toggle() );
+  }
 }

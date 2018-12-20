@@ -8,7 +8,7 @@ import { Subject } from 'rxjs';
   <div id="page-header">
     <div class="first-row row">
      
-      <a mat-icon-button class="menu-toggle item">
+      <a mat-icon-button class="menu-toggle item" (click)="toggleNav()">
         <mat-icon >reorder</mat-icon>
       </a>
   
@@ -41,6 +41,11 @@ export class HeaderComponent implements OnInit {
   constructor(private appContext: ContextService) {}
 
   ngOnInit() {
+
+  }
+
+  toggleNav(){
+    this.appContext.sidebarState.next(true);
   }
 
 }

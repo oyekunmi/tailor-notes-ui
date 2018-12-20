@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatSidenavModule } from '@angular/material';
 import { ContextService, HeaderComponent } from './shared';
 
 @NgModule({
@@ -16,7 +16,8 @@ import { ContextService, HeaderComponent } from './shared';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule
   ],
   providers: [ContextService],
   bootstrap: [AppComponent]
