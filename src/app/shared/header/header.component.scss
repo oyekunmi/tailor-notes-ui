@@ -22,7 +22,7 @@
       display: flex;
       align-items: center;  /* vertical alignment */
       width: 100%;      
-      margin: 10px 0;
+      margin: 15px 0 10px 0;
       padding: 0 5px;
 
       .item {
@@ -35,6 +35,10 @@
           flex: none; /* make this flex item inflexible, so width property controls its width entirely */
           width: 40px;
           text-align: center;
+          // box-shadow:
+          // 0 0 50px #fff,            /* outer white */
+          // -10px 0 10px #f0f,        /* outer left magenta */
+          // 10px 0 10px #0ff;         /* outer right cyan */
         }
       }
 
