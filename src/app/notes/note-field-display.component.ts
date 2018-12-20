@@ -16,6 +16,7 @@ import { Measure } from "./note.model";
             border-radius: 10px;
             font-size: 0.7em;
             border: dashed thin #2AA330;
+            box-sizing: border-box;
         }
         `
     ]

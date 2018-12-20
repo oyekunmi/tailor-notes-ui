@@ -1,45 +1,28 @@
-.error-plate {
-    padding     : 15px;
-    background  : #bf3c3c;
-    margin      : 15px;
-    color       : #fff;
-    font-size   : 16px;
-    font-weight : 500;
-    span {
-      vertical-align : 10px;
-    }
-    mat-icon {
-      font-size : 35px;
-      width     : 50px;
-      height    : 35px;
-    }
-  } 
- 
-  :host{
-    .notes-list{
-      padding: 0 10px;
-      display: grid;
-      grid-row-gap: 10px;
-    }
-
-    .floating-nav{
-      position: fixed;
-      bottom:10%;
-      right:10px;
-
-      a{
-        mat-icon{
-        
-          font-size: 3em;
-          // box-shadow: 2px 2px 3px #999;
-          // border-radius: 50px;
-          // background-color:#25d366;
-          color:#25d366;
-          fill: white;
-          height: auto;
-          width: auto;
-        }
-      }
-      
-    }
+:host{
+  .notes-list{
+    padding: 0 10px;
+    display: grid;
+    grid-row-gap: 10px;
   }
+
+  .floating-nav{
+    position: fixed;
+    bottom: 20px;
+    right:10px;
+
+    a{
+      mat-icon{
+      
+        font-size: 4em;
+        // box-shadow: 2px 2px 3px #999;
+        // border-radius: 50px;
+        // background-color:#25d366;
+        color:#25d366;
+        fill: white;
+        height: auto;
+        width: auto;
+      }
+    }
+    
+  }
+}

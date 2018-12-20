@@ -10,7 +10,7 @@ import { ContextService } from '../shared';
   selector: 'app-notes',
   template: `
     <aside class="floating-nav">
-      <a href=""><mat-icon>add_circle</mat-icon></a>
+      <a href="" routerLink="/notes/add" ><mat-icon>add_circle</mat-icon></a>
     </aside>
 
     <div class="notes-list" *ngIf="(notes | async) as notes; else loadingOrError">

@@ -22,7 +22,7 @@
       display: flex;
       align-items: center;  /* vertical alignment */
       width: 100%;      
-      margin: 15px 0 10px 0;
+      margin: 30px 0 25px 0;
       padding: 0 5px;
 
       .item {
@@ -43,8 +43,9 @@
       }
 
       .mat-icon{
-        font-size: 30px;
+        font-size: 40px;
         width: auto;
+        height: auto;
       }
 
       .logo{

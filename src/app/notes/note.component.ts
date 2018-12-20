@@ -10,13 +10,14 @@ import { MeasurementClass, Measure } from './note.model';
       </div>
       <div class="note-content">
         <div class="note-ttle"> {{note.name}} </div>
-        <div class="note-summary"  *ngIf="!showFull">
+
+        <div class="note-summary"  *ngIf="!showFull else fullTemplate">
           <note-field-display *ngFor="let item of summaryItems" [noteField]="item"></note-field-display>
         </div>
 
-        <div class="note-full" *ngIf="showFull">
+        <ng-template class="note-full" #fullTemplate>
           <note-field-display *ngFor="let item of note.measures" [noteField]="item"></note-field-display>
-        </div>
+        </ng-template>
 
       </div>
     </article>
@@ -29,8 +30,7 @@ export class NoteComponent implements OnInit {
   summaryItems: Measure[];
   showFull: boolean;
 
-  constructor() { 
-  }
+  constructor() {}
 
   ngOnInit() {
     this.summaryItems = this.note.measures.filter((x,i)=>i<3);

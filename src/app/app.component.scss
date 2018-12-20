@@ -42,13 +42,14 @@
 }
 .container{
     display: grid;
-    // height: 100vh; //add height causes white background after scroll
+    // height: 100vh; //adding height causes white background after scroll
     grid-row-gap: 20px;
-    grid-template-rows: 1fr auto 1fr;
+    grid-template-rows: 2fr auto 1fr;
     color: black; 
     background:transparent;
 }
 
 .mat-drawer-container{
   background: inherit;
+  height: 100%; //prevents scrolling of the page when side-nav is open
 }

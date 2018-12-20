@@ -11,6 +11,7 @@ import {
   MatIconModule,
 } from '@angular/material';
 import { NoteFieldDisplay } from './note-field-display.component';
+import { AddNoteComponent } from './add-note.component';
 
 @NgModule({
   imports: [
@@ -19,8 +20,7 @@ import { NoteFieldDisplay } from './note-field-display.component';
     MatIconModule
   ],
   providers: [NoteResolver, NoteService],
-  declarations: [NotesComponent, NoteComponent, NoteFieldDisplay]
+  declarations: [NotesComponent, NoteComponent, NoteFieldDisplay, AddNoteComponent]
 })
-export class NotesModule { 
-
-}
+export class NotesModule {}
+ 
