@@ -11,12 +11,12 @@ import { Location } from '@angular/common';
 
     <div class="first-row row">
       
-      <div class="item">
+      <div class="item" *ngIf="showBackBtn$ | async">
         <a mat-icon-button class="menu-toggle" (click)="toggleNav()">
           <!-- <mat-icon >reorder</mat-icon> -->
         </a>
 
-        <a mat-icon-button class="menu-toggle" (click)="goBack()" *ngIf="showBackBtn$ | async">
+        <a mat-icon-button class="menu-toggle" (click)="goBack()" >
           <mat-icon>arrow_back</mat-icon>
         </a>
 
