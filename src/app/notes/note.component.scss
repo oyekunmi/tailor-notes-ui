@@ -33,10 +33,11 @@ article.note-teaser{
             display: inline-block;
             margin: 0 5px 0 0;
             padding: 5px;
-            background: #2AA330;
-            color: #fff;
+            // background: #2AA330;
+            // color: #fff;
             border-radius: 10px;
             font-size: 0.7em;
+            border: dashed thin #2AA330;
 
         }
     }

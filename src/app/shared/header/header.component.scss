@@ -2,12 +2,13 @@
   // position : fixed;
   width    : 100%;
   z-index  : 1;
-  // top      : 0;
-  // background-color: rgba(101, 87, 234, 0.7);
   box-shadow: 0px 8px 6px 6px rgba(0, 0, 0, 0.1);
+  background: 
+  linear-gradient(127deg, rgba(0,255,0,.3), rgba(0,255,0,.5) 70.71%),
+  linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0.5) 70.71%),
 
 }
-  
+
 #page-header{
 
   display: flex;

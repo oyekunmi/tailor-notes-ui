@@ -5,7 +5,9 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'app-header',
   template: `
+
   <div id="page-header">
+
     <div class="first-row row">
      
       <a mat-icon-button class="menu-toggle item" (click)="toggleNav()">
