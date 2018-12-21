@@ -7,17 +7,13 @@ import { MeasurementClass } from './note.model';
   selector: 'app-add-note',
   template: `
   
-  <p>
-    add-note works!
-  </p>
-  
   <form [formGroup]="form" novalidate (ngSubmit)="save(form)">
 
     <mat-form-field>
       <input matInput placeholder="Contact Name" formControlName="name">
       <button mat-icon-button matSuffix (click)="addMeasure()"><mat-icon>add_circle</mat-icon></button>
     </mat-form-field>
-
+    
     <ng-container formArrayName="measures">
         <ng-container *ngFor="let measure of getMeasuresControl().controls; let i=index" [formGroupName]="i">
           <app-note-field-widget [group]="form.controls.measures.controls[i]"></app-note-field-widget>
@@ -38,7 +34,10 @@ export class AddNoteComponent implements OnInit {
   constructor(private appContext: ContextService, private fb: FormBuilder) { }
 
   ngOnInit() {
+
     this.appContext.showBackBtn.next(true);
+    this.appContext.moduleTitle.next("Add Note");
+
     this.form = this.fb.group({
       measures: this.fb.array([
         this.measureFactory()

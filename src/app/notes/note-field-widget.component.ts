@@ -6,7 +6,7 @@ import { Unit } from './note.model';
 @Component({
   selector: 'app-note-field-widget',
   template: `
-  <div [formGroup]="measureForm">
+  <div [formGroup]="measureForm" class="container">
     <mat-form-field>
       <mat-select placeholder="Body Part" formControlName="name">
         <mat-option *ngFor="let part of parts" [value]="part">{{part}}</mat-option>
@@ -27,7 +27,16 @@ import { Unit } from './note.model';
 
   </div>
   `,
-  styles: []
+  styles: [`
+    :host{
+      
+      
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+  `]
 })
 export class NoteFieldWidgetComponent implements OnInit {
 
