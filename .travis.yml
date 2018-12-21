@@ -15,7 +15,7 @@ before_script:
   - npm install
 
 script:
-  - ng build --prod --aot
+  - ng build --prod --aot --base-href "/tailor-notes-ui/"
 
 deploy:
   provider: pages
