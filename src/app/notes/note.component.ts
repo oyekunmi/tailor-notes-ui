@@ -5,10 +5,13 @@ import { MeasurementClass, Measure } from './note.model';
   selector: 'app-note',
   template: `
     <article class="note-teaser" (click)="toggleTeaser()">
+
       <div class="note-image">
         <mat-icon>person_pin</mat-icon>
       </div>
+
       <div class="note-content">
+
         <div class="note-ttle"> {{note.name}} </div>
 
         <div class="note-summary"  *ngIf="!showFull">
@@ -20,6 +23,7 @@ import { MeasurementClass, Measure } from './note.model';
         </div>
 
       </div>
+      
     </article>
   `,
   styleUrls: ['./note.component.scss']
