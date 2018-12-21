@@ -40,8 +40,8 @@ article.note-teaser{
         padding-top: 10px;
         border-top: solid thin #2AA330;
         display: grid;
-        grid-gap: 10px;
-        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 5px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
