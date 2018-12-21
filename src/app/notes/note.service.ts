@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/internal/operators';
-import { Note, MeasurementClass } from './note.model';
+import { Note, MeasurementClass, Unit } from './note.model';
 
 @Injectable()
 export class NoteService {
@@ -60,10 +60,29 @@ export class NoteService {
    ) as Observable<MeasurementClass[]>;
   }
 
-  private handleError(operation: string = 'operation') {
-    return (error: any) => {
+  private handleError = (operation: string = 'operation') => 
+     (error: any) => {
       error.operation = operation;
       return throwError(error);
     };
-  }
+
+  public standardMeasureNames = ():  Array<string> =>  [
+      'Waist',
+      'Bust',
+      'Hips',
+      'Shoulder',
+      'Half Length',
+      'Full Length',
+      'Half waist', 
+      'Sleeve',
+      'Round Sleeve'
+    ];
+
+    public standardUnits = ():  Array<Unit> =>  [
+      { id: 'in', name: 'Inches'},
+      { id: 'cm', name: 'Centimeters'},
+      { id: 'ft', name: 'Feets'},
+    ];
+
+  
 }

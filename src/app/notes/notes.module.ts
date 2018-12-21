@@ -8,19 +8,27 @@ import { NoteResolver } from './note-resolver.service';
 import { NoteService } from './note.service';
 
 import {
-  MatIconModule,
+  MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule,
 } from '@angular/material';
 import { NoteFieldDisplay } from './note-field-display.component';
 import { AddNoteComponent } from './add-note.component';
+import { NoteFieldWidgetComponent } from './note-field-widget.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     NotesRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSelectModule
   ],
   providers: [NoteResolver, NoteService],
-  declarations: [NotesComponent, NoteComponent, NoteFieldDisplay, AddNoteComponent]
+  declarations: [NotesComponent, NoteComponent, NoteFieldDisplay, AddNoteComponent, NoteFieldWidgetComponent]
 })
 export class NotesModule {}
  
