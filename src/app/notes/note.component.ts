@@ -11,13 +11,13 @@ import { MeasurementClass, Measure } from './note.model';
       <div class="note-content">
         <div class="note-ttle"> {{note.name}} </div>
 
-        <div class="note-summary"  *ngIf="!showFull else fullTemplate">
+        <div class="note-summary"  *ngIf="!showFull">
           <note-field-display *ngFor="let item of summaryItems" [noteField]="item"></note-field-display>
         </div>
 
-        <ng-template class="note-full" #fullTemplate>
+        <div class="note-full" *ngIf="showFull">
           <note-field-display *ngFor="let item of note.measures" [noteField]="item"></note-field-display>
-        </ng-template>
+        </div>
 
       </div>
     </article>
