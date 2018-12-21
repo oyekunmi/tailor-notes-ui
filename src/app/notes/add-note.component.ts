@@ -67,7 +67,7 @@ export class AddNoteComponent implements OnInit {
 
   private _getMeasuresControl = () => <FormArray> this.form.controls["measures"]; 
 
-  save(model: MeasurementClass) {
+  save(model) {
     // call API to save customer
     console.log(model);
 }
