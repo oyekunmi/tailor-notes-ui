@@ -19,7 +19,7 @@ import { MeasurementClass } from './note.model';
     </mat-form-field>
 
     <ng-container formArrayName="measures">
-        <ng-container *ngFor="let measure of form.controls.measures.controls; let i=index" [formGroupName]="i">
+        <ng-container *ngFor="let measure of getMeasuresControl().controls; let i=index" [formGroupName]="i">
           <app-note-field-widget [group]="form.controls.measures.controls[i]"></app-note-field-widget>
         </ng-container>
     </ng-container>
@@ -56,16 +56,16 @@ export class AddNoteComponent implements OnInit {
   }
   
   addMeasure(){
-    const control = this._getMeasuresControl();
+    const control = this.getMeasuresControl();
     control.push(this.measureFactory());
   }
 
   removeMeasure(i: number){
-    const control = this._getMeasuresControl();
+    const control = this.getMeasuresControl();
     control.removeAt(i);
   }
 
-  private _getMeasuresControl = () => <FormArray> this.form.controls["measures"]; 
+  public getMeasuresControl = () => <FormArray> this.form.controls["measures"]; 
 
   save(model) {
     // call API to save customer
