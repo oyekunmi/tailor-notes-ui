@@ -20,10 +20,12 @@ import { Unit } from './note.model';
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Value" type="number" class="example-right-align"  formControlName="value">
+      <input matInput placeholder="Value" type="number" class="right-align"  formControlName="value">
       <!--<span matPrefix>$&nbsp;</span>-->
-      <span matSuffix>.00</span>
+      <span matSuffix> &nbsp; {{ measureForm.get('unit').value }}</span>
     </mat-form-field>
+
+    <button mat-button>Remove</button>
 
   </div>
   `,
@@ -36,11 +38,16 @@ import { Unit } from './note.model';
       display: flex;
       flex-direction: column;
     }
+    .right-align{
+      text-align: right;
+    }
   `]
 })
 export class NoteFieldWidgetComponent implements OnInit {
 
   @Input('group') measureForm: FormGroup;
+  @Input() index: number;
+
   parts: Array<string>;
   units: Array<Unit>;
   
@@ -50,6 +57,10 @@ export class NoteFieldWidgetComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  removeMeasure(index){
+
   }
 
 }

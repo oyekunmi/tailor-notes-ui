@@ -6,20 +6,20 @@ describe('NoteFieldWidgetComponent', () => {
   let component: NoteFieldWidgetComponent;
   let fixture: ComponentFixture<NoteFieldWidgetComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ NoteFieldWidgetComponent ]
-    })
-    .compileComponents();
-  }));
+  // beforeEach(async(() => {
+  //   TestBed.configureTestingModule({
+  //     declarations: [ NoteFieldWidgetComponent ]
+  //   })
+  //   .compileComponents();
+  // }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NoteFieldWidgetComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  // beforeEach(() => {
+  //   fixture = TestBed.createComponent(NoteFieldWidgetComponent);
+  //   component = fixture.componentInstance;
+  //   fixture.detectChanges();
+  // });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });

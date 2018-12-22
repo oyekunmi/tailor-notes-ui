@@ -18,13 +18,13 @@ import { NoteService } from './note.service';
     
     <ng-container formArrayName="measures">
         <ng-container *ngFor="let measure of getMeasuresControl().controls; let i=index" [formGroupName]="i">
-          <app-note-field-widget [group]="form.controls.measures.controls[i]"></app-note-field-widget>
+          <app-note-field-widget [group]="form.controls.measures.controls[i]" [index]="i"></app-note-field-widget>
         </ng-container>
     </ng-container>
     
-    <div class="controls">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Add Contact</button>
-    </div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" color="primary">
+      Save Measurement
+    </button>
 
   </form>
   `,
@@ -48,11 +48,11 @@ export class AddNoteComponent implements OnInit {
     });
   }
 
-  measureFactory() {
-    return this.fb.group({
-      name: ['', Validators.required],
-      value: ['', Validators.required],
-      unit: ['', Validators.required]
+  measureFactory(){
+    return  this.fb.group({
+      name: ['Waist', Validators.required],
+      value: [0.00, [Validators.required, Validators.min(0.00)]],
+      unit: ['in', Validators.required]
     });
   }
 
