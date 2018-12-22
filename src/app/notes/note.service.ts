@@ -13,6 +13,8 @@ export class NoteService {
   public getNotes(count?: number): Observable<MeasurementClass[]> {
     if (localStorage.getItem('notes') === null) {
       this.notes = [];
+      this._getMockNotes().forEach(x=>this.addNote(x));
+      return this.getNotes();
     } else {
       this.notes = JSON.parse(localStorage.getItem('notes'));
     }
@@ -75,5 +77,47 @@ export class NoteService {
     { id: 'ft', name: 'Feets' },
   ];
 
-
+  private _getMockNotes(){
+    const measures = [
+      { id: "axvdtt", name: "Lateefah Raheem", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+      { id: "axvdtt", name: "Lateefah Raheem", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+      { id: "axvdtt", name: "Lateefah Raheem", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+      { id: "axvdtt", name: "Lateefah Raheem", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+      { id: "shams", name: "Oyesola Ogundele", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}}
+      ]},
+      { id: "ascbhsdj", name: "Ajani Akeem", measures: [
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}}
+      ]},
+      { id: "axvdtt", name: "Eze Emanuel", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+      { id: "axvdtt", name: "Obiakor Chizaram", measures: [ 
+        {name: 'height', value: 10, unit: { id: 'in', name: 'inches'}},
+        {name: 'waist', value: 32, unit: { id: 'in', name: 'inches'}},
+        {name: 'Half wast', value: 20, unit: { id: 'in', name: 'inches'}},
+      ]},
+    ];
+    return measures;
+  }
 }
