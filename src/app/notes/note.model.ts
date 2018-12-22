@@ -1,6 +1,7 @@
 export interface Note{
     id: string;
     name: string;
+    measures: Measure[]
 }
 
 export interface Measure{

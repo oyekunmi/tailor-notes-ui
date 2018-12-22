@@ -1,5 +1,6 @@
+import { NoteService } from './note.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { MeasurementClass, Measure } from './note.model';
+import { MeasurementClass, Measure, Note } from './note.model';
 
 @Component({ 
   selector: 'app-note',
@@ -34,7 +35,7 @@ export class NoteComponent implements OnInit {
   summaryItems: Measure[];
   showFull: boolean;
 
-  constructor() {}
+  constructor(private noteService: NoteService) {}
 
   ngOnInit() {
     this.summaryItems = this.note.measures.filter((x,i)=>i<3);

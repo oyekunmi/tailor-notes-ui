@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ContextService } from '../shared';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { MeasurementClass } from './note.model';
+import { NoteService } from './note.service';
+
 
 @Component({
   selector: 'app-add-note',
@@ -31,7 +33,7 @@ import { MeasurementClass } from './note.model';
 export class AddNoteComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private appContext: ContextService, private fb: FormBuilder) { }
+  constructor(private appContext: ContextService, private fb: FormBuilder, private noteService: NoteService) { }
 
   ngOnInit() {
 
@@ -46,29 +48,30 @@ export class AddNoteComponent implements OnInit {
     });
   }
 
-  measureFactory(){
-    return  this.fb.group({
+  measureFactory() {
+    return this.fb.group({
       name: ['', Validators.required],
       value: ['', Validators.required],
       unit: ['', Validators.required]
     });
   }
-  
-  addMeasure(){
+
+  addMeasure() {
     const control = this.getMeasuresControl();
     control.push(this.measureFactory());
   }
 
-  removeMeasure(i: number){
+  removeMeasure(i: number) {
     const control = this.getMeasuresControl();
     control.removeAt(i);
   }
 
-  public getMeasuresControl = () => <FormArray> this.form.controls["measures"]; 
+  public getMeasuresControl = () => <FormArray>this.form.controls["measures"];
+
 
   save(model) {
-    // call API to save customer
-    console.log(model);
-}
+    console.log(model.value);
+    this.noteService.addNote(model.value);
+  }
 
 }
