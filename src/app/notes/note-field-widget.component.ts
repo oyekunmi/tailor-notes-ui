@@ -25,7 +25,7 @@ import { Unit } from './note.model';
       <span matSuffix> &nbsp; {{ measureForm.get('unit').value }}</span>
     </mat-form-field>
 
-    <button mat-button>Remove</button>
+    <button mat-button type="button">Remove</button>
 
   </div>
   `,

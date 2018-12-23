@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ContextService } from '../context.service';
 import { Subject } from 'rxjs';
-import { Location } from '@angular/common';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-header',
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   template: `
 
   <div id="page-header">

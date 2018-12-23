@@ -3,6 +3,8 @@ import { ContextService } from '../shared';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { MeasurementClass } from './note.model';
 import { NoteService } from './note.service';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +15,7 @@ import { NoteService } from './note.service';
 
     <mat-form-field>
       <input matInput placeholder="Contact Name" formControlName="name">
-      <button mat-icon-button matSuffix (click)="addMeasure()"><mat-icon>add_circle</mat-icon></button>
+      <button mat-icon-button matSuffix (click)="addMeasure()" type="button"><mat-icon>add_circle</mat-icon></button>
     </mat-form-field>
     
     <ng-container formArrayName="measures">
@@ -33,7 +35,11 @@ import { NoteService } from './note.service';
 export class AddNoteComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private appContext: ContextService, private fb: FormBuilder, private noteService: NoteService) { }
+  constructor(
+    private appContext: ContextService, 
+    private fb: FormBuilder, 
+    private noteService: NoteService,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -51,7 +57,7 @@ export class AddNoteComponent implements OnInit {
   measureFactory(){
     return  this.fb.group({
       name: ['Waist', Validators.required],
-      value: [0.00, [Validators.required, Validators.min(0.00)]],
+      value: [0.00, [Validators.required, Validators.min(0.01)]],
       unit: ['in', Validators.required]
     });
   }
@@ -59,6 +65,7 @@ export class AddNoteComponent implements OnInit {
   addMeasure() {
     const control = this.getMeasuresControl();
     control.push(this.measureFactory());
+    return false;
   }
 
   removeMeasure(i: number) {
@@ -71,7 +78,9 @@ export class AddNoteComponent implements OnInit {
 
   save(model) {
     console.log(model.value);
-    this.noteService.addNote(model.value);
+    this.noteService.addNote(model.value).subscribe(x=>{
+      if(x) this.router.navigateByUrl('notes');
+    });
   }
 
 }
