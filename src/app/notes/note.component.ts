@@ -1,11 +1,11 @@
 import { NoteService } from './note.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MeasurementClass, Measure, Note } from './note.model';
 
 @Component({ 
   selector: 'app-note',
   template: `
-    <article class="note-teaser" (click)="toggleTeaser()">
+    <article class="note-teaser" (click)="toggleTeaser()" (swipeleft)="onDelete($event)">
 
       <div class="note-image">
         <mat-icon>person_pin</mat-icon>
@@ -32,6 +32,8 @@ import { MeasurementClass, Measure, Note } from './note.model';
 export class NoteComponent implements OnInit {
  
   @Input() note: MeasurementClass;
+  @Output() remove:EventEmitter<MeasurementClass> = new EventEmitter();
+
   summaryItems: Measure[];
   showFull: boolean;
 
@@ -44,6 +46,10 @@ export class NoteComponent implements OnInit {
 
   toggleTeaser(){
     this.showFull = !this.showFull;
+  }
+
+  onDelete($event){
+    this.remove.emit(this.note);
   }
 
   

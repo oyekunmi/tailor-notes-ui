@@ -16,8 +16,7 @@ import { ContextService, HeaderComponent, NavComponent } from './shared';
   imports: [ 
     BrowserModule,
     AppRoutingModule,
-    // BrowserAnimationsModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     MatIconModule,
     MatSidenavModule
   ],

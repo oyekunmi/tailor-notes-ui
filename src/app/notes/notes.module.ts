@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';  
 
 import { NotesRoutingModule } from './notes-routing.module';
 import { NotesComponent } from './notes.component';
@@ -25,7 +26,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule
   ],
   providers: [NoteResolver, NoteService],
   declarations: [NotesComponent, NoteComponent, NoteFieldDisplay, AddNoteComponent, NoteFieldWidgetComponent]

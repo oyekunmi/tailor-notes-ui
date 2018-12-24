@@ -9,12 +9,12 @@ import { ContextService } from '../shared';
 @Component({
   selector: 'app-notes',
   template: `
-    <aside class="floating-nav">
+    <aside class="floating-nav" cdkDrag>
       <a href="" routerLink="/notes/add" ><mat-icon>add_circle</mat-icon></a>
     </aside>
 
     <div class="notes-list" *ngIf="(notes | async) as notes; else loadingOrError">
-        <app-note *ngFor="let note of notes" [note]=note></app-note>
+        <app-note *ngFor="let note of notes" [note]=note (remove)="onRemove(note)" cdkDragLockAxis="x" cdkDrag></app-note>
     </div>
       
     <ng-template #loadingOrError>
@@ -33,6 +33,7 @@ import { ContextService } from '../shared';
 export class NotesComponent implements OnInit {
 
   public notes: Observable<Note[]>;
+
   public loadingError$ = new Subject<boolean>();
 
   constructor(private noteService: NoteService, private appContext: ContextService) { }
@@ -48,6 +49,15 @@ export class NotesComponent implements OnInit {
         return throwError(error);
       })
     );
+
   }
+
+  onRemove(note){
+    this.notes.forEach(element => {
+      // if(element === note) thi
+    });
+    console.log('swipped');
+  }
+
 
 }

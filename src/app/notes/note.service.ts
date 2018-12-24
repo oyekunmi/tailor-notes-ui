@@ -22,7 +22,6 @@ export class NoteService {
     ) as Observable<MeasurementClass[]>;
   }
 
-
   public addNote(note: MeasurementClass): Observable<boolean> {
     let notes = [];
     if (localStorage.getItem('notes') === null) {
