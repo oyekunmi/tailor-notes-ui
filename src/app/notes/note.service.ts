@@ -6,47 +6,47 @@ import { Note, MeasurementClass, Unit } from './note.model';
 @Injectable()
 export class NoteService {
 
-  notes: MeasurementClass[];
-
   constructor() { }
 
   public getNotes(count?: number): Observable<MeasurementClass[]> {
+    let notes = [];
     if (localStorage.getItem('notes') === null) {
-      this._initNotes();
-    } else {
-      this.notes = JSON.parse(localStorage.getItem('notes'));
+      // this._initNotes();
+      localStorage.setItem('notes', JSON.stringify(notes));
     }
-    return Observable.of(this.notes).pipe(
-      map(data => data.filter((item) => item.id !== '')),
+
+    notes = JSON.parse(localStorage.getItem('notes'));
+    return Observable.of(notes).pipe(
+      // map(data => data.filter((item) => item.id !== '')),
       catchError(this.handleError('getNotes'))
     ) as Observable<MeasurementClass[]>;
   }
 
   public addNote(note: MeasurementClass): Observable<boolean> {
+
     let notes = [];
     if (localStorage.getItem('notes') === null) {
-      notes = [];
-      notes.push(note);
+      notes = [note];
       localStorage.setItem('notes', JSON.stringify(notes));
     } else {
       notes = JSON.parse(localStorage.getItem('notes'));
       notes.push(note);
       localStorage.setItem('notes', JSON.stringify(notes));
     }
-    
-    this.notes.push(note);
 
     return Observable.of(true);
-
   }
 
   public deleteNote(note: MeasurementClass) {
-    for (let i = 0; i < this.notes.length; i++) {
-      if (note == this.notes[i]) {
-        this.notes.splice(i, 1);
-        localStorage.setItem('notes', JSON.stringify(this.notes));
-      }
-    }
+
+    let notes: MeasurementClass[] = JSON.parse(localStorage.getItem('notes'));
+    notes = notes.filter( x=> {
+      // console.log(`${note == x}`);
+      return x.id !== note.id;
+    });
+
+    localStorage.setItem('notes', JSON.stringify(notes));
+
   }
 
 
@@ -57,7 +57,6 @@ export class NoteService {
     };
 
   private _initNotes(){
-      this.notes = [];
       this._getMockNotes().forEach(x=>this.addNote(x));
       return this.getNotes();
   }

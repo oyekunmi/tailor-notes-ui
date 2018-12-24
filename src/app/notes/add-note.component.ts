@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { ContextService } from '../shared';
 import { NoteService } from './note.service';
+import { MeasurementClass } from './note.model';
 
 
 @Component({
@@ -79,9 +80,10 @@ export class AddNoteComponent implements OnInit {
   public getMeasuresControl = () => <FormArray>this.form.controls["measures"];
 
 
-  save(model) {
-    console.log(model.value);
-    this.noteService.addNote(model.value).subscribe(x=>{
+  save(form: any) {
+    let model: MeasurementClass = form.value;
+    model.id = Date.now().toString();
+    this.noteService.addNote(model).subscribe(x=>{
       if(x) this.router.navigateByUrl('notes');
     });
   }
