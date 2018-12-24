@@ -12,9 +12,7 @@ export class NoteService {
 
   public getNotes(count?: number): Observable<MeasurementClass[]> {
     if (localStorage.getItem('notes') === null) {
-      this.notes = [];
-      this._getMockNotes().forEach(x=>this.addNote(x));
-      return this.getNotes();
+      this._initNotes();
     } else {
       this.notes = JSON.parse(localStorage.getItem('notes'));
     }
@@ -58,6 +56,12 @@ export class NoteService {
       error.operation = operation;
       return throwError(error);
     };
+
+  private _initNotes(){
+      this.notes = [];
+      this._getMockNotes().forEach(x=>this.addNote(x));
+      return this.getNotes();
+  }
 
   public standardMeasureNames = (): Array<string> => [
     'Waist',

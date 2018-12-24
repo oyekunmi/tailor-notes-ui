@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ContextService } from '../shared';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
-import { MeasurementClass } from './note.model';
-import { NoteService } from './note.service';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { ContextService } from '../shared';
+import { NoteService } from './note.service';
 
 
 @Component({
@@ -15,12 +13,17 @@ import { Router } from '@angular/router';
 
     <mat-form-field>
       <input matInput placeholder="Contact Name" formControlName="name">
-      <button mat-icon-button matSuffix (click)="addMeasure()" type="button"><mat-icon>add_circle</mat-icon></button>
+      <button mat-icon-button matSuffix (click)="addFieldwidget()" type="button"><mat-icon>add_circle</mat-icon></button>
     </mat-form-field>
     
     <ng-container formArrayName="measures">
         <ng-container *ngFor="let measure of getMeasuresControl().controls; let i=index" [formGroupName]="i">
-          <app-note-field-widget [group]="form.controls.measures.controls[i]" [index]="i"></app-note-field-widget>
+          <app-note-field-widget 
+            [group]="form.controls.measures.controls[i]" 
+            [index]="i" 
+            (remove)="removeFieldWiget(i)"
+            [canRemove]="canRemove()"
+            ></app-note-field-widget>
         </ng-container>
     </ng-container>
     
@@ -62,13 +65,13 @@ export class AddNoteComponent implements OnInit {
     });
   }
 
-  addMeasure() {
+  addFieldwidget() {
     const control = this.getMeasuresControl();
     control.push(this.measureFactory());
     return false;
   }
 
-  removeMeasure(i: number) {
+  removeFieldWiget(i: number) {
     const control = this.getMeasuresControl();
     control.removeAt(i);
   }
@@ -81,6 +84,10 @@ export class AddNoteComponent implements OnInit {
     this.noteService.addNote(model.value).subscribe(x=>{
       if(x) this.router.navigateByUrl('notes');
     });
+  }
+
+  canRemove(): boolean{
+    return this.getMeasuresControl().length > 1;
   }
 
 }

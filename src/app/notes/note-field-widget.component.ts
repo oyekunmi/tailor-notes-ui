@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { NoteService } from './note.service';
 import { Unit } from './note.model';
@@ -25,7 +25,7 @@ import { Unit } from './note.model';
       <span matSuffix> &nbsp; {{ measureForm.get('unit').value }}</span>
     </mat-form-field>
 
-    <button mat-button type="button">Remove</button>
+    <button mat-button type="button" (click)="removeField()" *ngIf="canRemove">Remove</button>
 
   </div>
   `,
@@ -47,6 +47,8 @@ export class NoteFieldWidgetComponent implements OnInit {
 
   @Input('group') measureForm: FormGroup;
   @Input() index: number;
+  @Output() remove: EventEmitter<number> = new EventEmitter();
+  @Input() canRemove: boolean;
 
   parts: Array<string>;
   units: Array<Unit>;
@@ -59,8 +61,8 @@ export class NoteFieldWidgetComponent implements OnInit {
   ngOnInit() {
   }
 
-  removeMeasure(index){
-
+  removeField(){
+    this.remove.emit(this.index);
   }
 
 }
