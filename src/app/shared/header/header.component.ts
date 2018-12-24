@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContextService } from '../context.service';
 import { Subject } from 'rxjs';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -45,14 +46,15 @@ export class HeaderComponent{
   public title$: Subject<string> = this.appContext.moduleTitle;
   public showBackBtn$: Subject<boolean> = this.appContext.showBackBtn;
 
-  constructor(private appContext: ContextService, private location: Location) {}
+  constructor(private appContext: ContextService, private location: Location, private router: Router) {}
 
   toggleNav(){
     this.appContext.sidebarState.next(true);
   }
 
   goBack(){
-    this.location.back();
+    // this.location.back(); @TODO: Make this work on cordova
+    this.router.navigateByUrl("notes");
   }
 
 }
