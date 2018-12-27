@@ -18,6 +18,8 @@ export interface Unit{
 export class MeasurementClass implements Note{
     id: string;
     name: string;
+    phone: string;
+    others: string;
     measures: Measure[];
     
     constructor(note: Note){

@@ -16,6 +16,10 @@ import { MeasurementClass } from './note.model';
       <input matInput placeholder="Contact Name" formControlName="name">
       <button mat-icon-button matSuffix (click)="addFieldwidget()" type="button"><mat-icon>add_circle</mat-icon></button>
     </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Phone Number" formControlName="phone">
+    </mat-form-field>
     
     <ng-container formArrayName="measures">
         <ng-container *ngFor="let measure of getMeasuresControl().controls; let i=index" [formGroupName]="i">
@@ -27,6 +31,11 @@ import { MeasurementClass } from './note.model';
             ></app-note-field-widget>
         </ng-container>
     </ng-container>
+
+    
+    <mat-form-field>
+      <textarea matInput placeholder="Notes" rows="5"  formControlName="others" cdkTextareaAutosize></textarea>
+    </mat-form-field>
     
     <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid" color="primary">
       Save Measurement
@@ -51,11 +60,14 @@ export class AddNoteComponent implements OnInit {
     this.appContext.moduleTitle.next("Add Note");
 
     this.form = this.fb.group({
+      name: ['', Validators.required],
+      phone: [''],
+      others: [''],
       measures: this.fb.array([
         this.measureFactory()
-      ]),
-      name: ['', Validators.required]
+      ])
     });
+    
   }
 
   measureFactory(){
