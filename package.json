@@ -7,6 +7,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "prepare-cordova": "ng build --prod --base-href . --output-path ./cord/www/",
+    "build-cordova": "cordova build android && cordova build browser",
+    "build-browser": "cordova build browser --prefix cord ",
+    "build-android": "cordova build android",
+    "browser": "npm run prepare-cordova && npm run build-browser && cordova run browser",
+    "android": "npm run prepare-cordova && npm run build-android && cordova run android --device",
     "e2e": "ng e2e"
   },
   "private": true,
