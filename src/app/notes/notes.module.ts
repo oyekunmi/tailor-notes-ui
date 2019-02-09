@@ -15,6 +15,8 @@ import { NoteFieldDisplay } from './note-field-display.component';
 import { AddNoteComponent } from './add-note.component';
 import { NoteFieldWidgetComponent } from './note-field-widget.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HeaderComponent } from '../shared/header/header.component';
+import { SearchButtonComponent } from '../shared/header/search-button/search-button.component';
 
 @NgModule({
   imports: [
@@ -30,7 +32,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     DragDropModule
   ],
   providers: [NoteResolver, NoteService],
-  declarations: [NotesComponent, NoteComponent, NoteFieldDisplay, AddNoteComponent, NoteFieldWidgetComponent]
+  declarations: [NotesComponent, 
+    NoteComponent, 
+    NoteFieldDisplay, 
+    AddNoteComponent, 
+    NoteFieldWidgetComponent, 
+    HeaderComponent,
+    SearchButtonComponent,
+  ]
 })
 export class NotesModule {}
  
