@@ -1,0 +1,27 @@
+:host form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 10px;
+}
+
+:host form > * {
+  -webkit-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+}
+
+:host form > *:not(button) {
+  background: #fff;
+}
+
+:host form .controls {
+  text-align: center;
+}
+/*# sourceMappingURL=add-note.component.css.map */

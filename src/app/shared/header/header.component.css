@@ -1,0 +1,78 @@
+:host {
+  width: 100%;
+  z-index: 1;
+  -webkit-box-shadow: 0px 8px 6px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 8px 6px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(127deg, rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.5) 70.71%), linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0.5) 70.71%);
+}
+
+#page-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+}
+
+#page-header .row.first-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* vertical alignment */
+  width: 100%;
+  margin: 30px 0 25px 0;
+  padding: 0 5px;
+}
+
+#page-header .row.first-row .item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 5px;
+}
+
+#page-header .row.first-row .item.logo {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  /* make this flex item inflexible, so width property controls its width entirely */
+  width: 40px;
+  text-align: center;
+}
+
+#page-header .row.first-row .mat-icon {
+  font-size: 40px;
+  width: auto;
+  height: auto;
+}
+
+#page-header .row.first-row .logo {
+  color: rgba(0, 68, 102, 0.9);
+  padding: 10px;
+  border-radius: 100px;
+  border: solid thin rgba(0, 68, 102, 0.9);
+}
+
+#page-header .row.first-row .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#page-header .row.first-row .search a {
+  padding: 0 0 0 10px;
+}
+/*# sourceMappingURL=header.component.css.map */
