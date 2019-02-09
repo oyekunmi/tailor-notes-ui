@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { Note, MeasurementClass } from './note.model';
 import { NoteService } from './note.service';
@@ -9,12 +9,16 @@ import { ContextService } from '../shared';
 @Component({
   selector: 'app-notes',
   template: `
+  <div class="searchNotesContainer">
+   <input type="text" placeholder="Search" [(ngModel)] ="searchTerm" class="searchInput">
+   </div>
     <aside class="floating-nav" cdkDrag>
       <a href="" routerLink="/notes/add" ><mat-icon>add_circle</mat-icon></a>
     </aside>
-
     <div class="notes-list" *ngIf="notes; else loadingOrError">
-        <app-note *ngFor="let note of notes" [note]=note (remove)="onRemove(note)" cdkDragLockAxis="x" cdkDrag></app-note>
+        <app-note *ngFor="let note of notes | searchNotes:searchTerm"
+        [note]=note (remove)="onRemove(note)"
+        cdkDragLockAxis="x" cdkDrag></app-note>
     </div>
 
     <ng-template #loadingOrError>
@@ -30,8 +34,9 @@ import { ContextService } from '../shared';
   `,
   styleUrls: ['./notes.component.scss']
 })
+ 
 export class NotesComponent implements OnInit, OnDestroy {
-
+ @ViewChild('searchTerm') searchTerm;
   public notes$: Subscription;
   public notes: MeasurementClass[];
   public loadingError$ = new Subject<boolean>();
@@ -58,7 +63,7 @@ export class NotesComponent implements OnInit, OnDestroy {
     this.noteService.deleteNote(note);
     console.log('swipped');
   }
-
+  
 ngOnDestroy() {
   this.notes$.unsubscribe();
 }

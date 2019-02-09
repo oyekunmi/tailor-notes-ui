@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule, MatSidenavModule } from '@angular/material';
 import { ContextService, HeaderComponent, NavComponent } from './shared';
+import { SharedModule } from './shared.module';
 
 @NgModule({
   declarations: [
@@ -13,14 +15,16 @@ import { ContextService, HeaderComponent, NavComponent } from './shared';
     HeaderComponent,
     NavComponent
   ],
-  imports: [ 
+  imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    SharedModule
   ],
   providers: [ContextService],
   bootstrap: [AppComponent]
-}) 
+})
 export class AppModule { }
