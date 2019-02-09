@@ -7,7 +7,6 @@ import { Subscription } from 'rxjs';
   selector: 'app-root',
   template: `
   <!-- <div class="gradient"></div> -->
-
   <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="push" ><app-side-nav></app-side-nav></mat-sidenav>
     <mat-sidenav-content>
