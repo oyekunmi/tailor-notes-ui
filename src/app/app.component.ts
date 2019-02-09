@@ -1,6 +1,7 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { ContextService } from './shared';
 import { MatSidenav } from '@angular/material';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -23,14 +24,18 @@ import { MatSidenav } from '@angular/material';
   `,
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements AfterViewInit, OnDestroy {
   title = 'tailor-notes-ui';
+  sideBarStateSubsription: Subscription;
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
   constructor(private appContext: ContextService){
   }
 
-  ngAfterViewInit(){
-    this.appContext.sidebarState.subscribe(x=> this.sidenav.toggle() );
+  ngAfterViewInit() {
+    this.sideBarStateSubsription = this.appContext.sidebarState.subscribe(x=> this.sidenav.toggle() );
+  }
+  ngOnDestroy() {
+    this.sideBarStateSubsription.unsubscribe();
   }
 }
