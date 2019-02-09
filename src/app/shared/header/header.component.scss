@@ -1,70 +1,51 @@
-:host {
-  // position : fixed;
-  width    : 100%;
-  z-index  : 1;
-  box-shadow: 0px 8px 6px 6px rgba(0, 0, 0, 0.1);
-  background: 
-  linear-gradient(127deg, rgba(0,255,0,.3), rgba(0,255,0,.5) 70.71%),
-  linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0.5) 70.71%),
+/*-----------------------------------------------------------
+ [Master StyleSheet for Header Component]
 
-}
+ Version: 1.0.0
+ Date: 2/9/2019
+ Description: This is the base style for the app's header 
+------------------------------------------------------------*/
+#page-header {
+  background-color: #60B4D8;
+  width: 100vw;
+  min-height: 42px;
 
-#page-header{
+  .header-content{
+    display: flex;
+    flex-direction: row;
 
-  display: flex;
-  align-items: center;
-  color: #fff;
+  .menu-btn {
+    width: 35px;
+    padding:0.5rem;
+    max-height:60%;
+    margin-left:6px;
 
-  .row{
-    
-    &.first-row {
-
-      display: flex;
-      align-items: center;  /* vertical alignment */
-      width: 100%;      
-      margin: 30px 0 25px 0;
-      padding: 0 5px;
-
-      .item {
-        flex: 1; //give all items equal width
-        // background: #eee;
-        box-sizing: border-box; //makes padding part of the width of each item
-        margin:0 5px;
-
-        &.logo{
-          flex: none; /* make this flex item inflexible, so width property controls its width entirely */
-          width: 40px;
-          text-align: center;
-          // box-shadow:
-          // 0 0 50px #fff,            /* outer white */
-          // -10px 0 10px #f0f,        /* outer left magenta */
-          // 10px 0 10px #0ff;         /* outer right cyan */
-        }
+    .app-menu span {
+      display: block;
+      color:#fff;
+      padding:0;
+      margin: 0;
+      hr{
+        border:1.5px solid #fff;
       }
-
-      .mat-icon{
-        font-size: 40px;
-        width: auto;
-        height: auto;
-      }
-
-      .logo{
-        color: rgba(0, 68, 102, 0.9);
-        padding: 10px;
-        border-radius: 100px;
-        border: solid thin rgba(0, 68, 102, 0.9);
-      }
-
-      .search{
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        a{
-          padding: 0 0 0 10px;
-        }
-      }
-
-
     }
   }
+  .page-title{
+    align-self: center;
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #fff;
+    height: 20px;
+    margin-left:14px;
+    display:inline-block;
+  }
+  .action-btn{
+    height:100%;
+    margin-left: auto;
+    align-self: center;
+    display: inline-flex;
+    justify-content: center;
+    margin-right:18px;
+  }
+}
 }

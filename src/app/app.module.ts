@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule, MatSidenavModule } from '@angular/material';
 import { ContextService, HeaderComponent, NavComponent } from './shared';
+import { SearchButtonComponent } from './shared/header/search-button/search-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NavComponent
+    NavComponent,
+    SearchButtonComponent
   ],
-  imports: [ 
+  imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
