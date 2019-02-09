@@ -11,7 +11,6 @@ import { Subscription } from 'rxjs';
     <mat-sidenav #sidenav mode="push" ><app-side-nav></app-side-nav></mat-sidenav>
     <mat-sidenav-content>
       <div class="container">
-        <app-header></app-header>
         <div class="content">
           <router-outlet></router-outlet>
         </div>

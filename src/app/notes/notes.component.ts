@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { Note, MeasurementClass } from './note.model';
 import { NoteService } from './note.service';
@@ -9,18 +9,36 @@ import { ContextService } from '../shared';
 @Component({
   selector: 'app-notes',
   template: `
-  <div class="searchNotesContainer">
-   <input type="text" placeholder="Search" [(ngModel)] ="searchTerm" class="searchInput">
-   </div>
-    <aside class="floating-nav" cdkDrag>
+    <!-- <aside class="floating-nav" cdkDrag>
       <a href="" routerLink="/notes/add" ><mat-icon>add_circle</mat-icon></a>
-    </aside>
-    <div class="notes-list" *ngIf="notes; else loadingOrError">
-        <app-note *ngFor="let note of notes | searchNotes:searchTerm"
-        [note]=note (remove)="onRemove(note)"
-        cdkDragLockAxis="x" cdkDrag></app-note>
-    </div>
+    </aside> -->
 
+   <!-- <div class="notes-list" *ngIf="notes; else loadingOrError">
+        <app-note *ngFor="let note of notes" [note]=note (remove)="onRemove(note)" cdkDragLockAxis="x" cdkDrag></app-note>
+    </div> -->
+    <app-header>
+    <app-search-button></app-search-button>
+    </app-header>
+
+    <div class="note-list">
+      <div class="customers-detail">
+      <img src="../../assets/images/icons8_Male_User_64px.png" alt="Customers image">
+      <div class="name-and-phone">
+      <span>JOHNY DEPP</span>
+      <span>08025259919  |   02/01/2019</span>
+      </div>
+      </div>
+      <div class="customers-expectation"><strong>Design Style:</strong> Agbada | <strong>
+       Material Length:</strong> 6 yards | <strong>Service Charges:</strong> 5,000 | <strong>Delivery Date:</strong> 10/01/2019</div>
+      <div class="customer-actions">
+       <div>
+       <img src="../../assets/images/icons8_Phone_50px.png" alt="phone icon">
+       <img src="../../assets/images/icons8_Edit_64px.png" alt="edit icon">
+       <img src="../../assets/images/icons8_Trash_52px_1.png" alt="delete icon">
+       </div>
+      </div>
+    </div>
+      
     <ng-template #loadingOrError>
       <div class="error-plate" *ngIf="loadingError$ | async; else loading">
         <mat-icon>warning</mat-icon>
@@ -34,9 +52,8 @@ import { ContextService } from '../shared';
   `,
   styleUrls: ['./notes.component.scss']
 })
- 
-export class NotesComponent implements OnInit, OnDestroy {
- @ViewChild('searchTerm') searchTerm;
+export class NotesComponent implements OnInit {
+
   public notes$: Subscription;
   public notes: MeasurementClass[];
   public loadingError$ = new Subject<boolean>();
@@ -45,7 +62,7 @@ export class NotesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.appContext.moduleTitle.next('Measurements');
+    this.appContext.moduleTitle.next("Measurements");
     this.appContext.showBackBtn.next(false);
 
     this.notes$ = this.noteService.getNotes().subscribe( data => {
@@ -58,13 +75,11 @@ export class NotesComponent implements OnInit, OnDestroy {
 
   }
 
-  onRemove(note) {
+  onRemove(note){
     this.notes = this.notes.filter( x => x !== note );
     this.noteService.deleteNote(note);
     console.log('swipped');
   }
-  
-ngOnDestroy() {
-  this.notes$.unsubscribe();
-}
+
+
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';  
 
 import { NotesRoutingModule } from './notes-routing.module';
 import { NotesComponent } from './notes.component';
@@ -15,7 +15,8 @@ import { NoteFieldDisplay } from './note-field-display.component';
 import { AddNoteComponent } from './add-note.component';
 import { NoteFieldWidgetComponent } from './note-field-widget.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { SharedModule } from '../shared.module';
+import { HeaderComponent } from '../shared/header/header.component';
+import { SearchButtonComponent } from '../shared/header/search-button/search-button.component';
 
 @NgModule({
   imports: [
@@ -28,10 +29,17 @@ import { SharedModule } from '../shared.module';
     MatFormFieldModule,
     MatButtonModule,
     MatSelectModule,
-    DragDropModule,
-    SharedModule
+    DragDropModule
   ],
   providers: [NoteResolver, NoteService],
-  declarations: [NotesComponent, NoteComponent, NoteFieldDisplay, AddNoteComponent, NoteFieldWidgetComponent]
+  declarations: [NotesComponent, 
+    NoteComponent, 
+    NoteFieldDisplay, 
+    AddNoteComponent, 
+    NoteFieldWidgetComponent, 
+    HeaderComponent,
+    SearchButtonComponent,
+  ]
 })
 export class NotesModule {}
+ 
