@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { Note, MeasurementClass } from './note.model';
 import { NoteService } from './note.service';
@@ -20,6 +20,7 @@ import { ContextService } from '../shared';
         [note]=note (remove)="onRemove(note)"
         cdkDragLockAxis="x" cdkDrag></app-note>
     </div>
+
     <ng-template #loadingOrError>
       <div class="error-plate" *ngIf="loadingError$ | async; else loading">
         <mat-icon>warning</mat-icon>
@@ -33,8 +34,9 @@ import { ContextService } from '../shared';
   `,
   styleUrls: ['./notes.component.scss']
 })
-export class NotesComponent implements OnInit {
-  @ViewChild('searchTerm') searchTerm;
+ 
+export class NotesComponent implements OnInit, OnDestroy {
+ @ViewChild('searchTerm') searchTerm;
   public notes$: Subscription;
   public notes: MeasurementClass[];
   public loadingError$ = new Subject<boolean>();
@@ -43,7 +45,7 @@ export class NotesComponent implements OnInit {
 
   ngOnInit() {
 
-    this.appContext.moduleTitle.next("Measurements");
+    this.appContext.moduleTitle.next('Measurements');
     this.appContext.showBackBtn.next(false);
 
     this.notes$ = this.noteService.getNotes().subscribe( data => {
@@ -56,10 +58,13 @@ export class NotesComponent implements OnInit {
 
   }
 
-  onRemove(note){
+  onRemove(note) {
     this.notes = this.notes.filter( x => x !== note );
     this.noteService.deleteNote(note);
     console.log('swipped');
   }
-
+  
+ngOnDestroy() {
+  this.notes$.unsubscribe();
+}
 }
