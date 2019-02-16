@@ -1,0 +1,21 @@
+:host .notes-list {
+  padding: 0 10px;
+  display: -ms-grid;
+  display: grid;
+  grid-row-gap: 10px;
+}
+
+:host .floating-nav {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+}
+
+:host .floating-nav a mat-icon {
+  font-size: 4em;
+  color: #25d366;
+  fill: white;
+  height: auto;
+  width: auto;
+}
+/*# sourceMappingURL=notes.component.css.map */
