@@ -29,7 +29,7 @@ import { ContextService } from '../shared';
       </div>
       </div>
       <div class="customers-expectation"><strong>Design Style:</strong> Agbada | <strong>
-       Material Length:</strong> 6 yards | <strong>Service Charges:</strong> 5,000 | <strong>Delivery Date:</strong> 10/01/2019</div>
+       Material Length:</strong> 6 yards | <strong>Delivery Date:</strong> 10/01/2019</div>
       <div class="customer-actions">
        <div>
        <img src="../../assets/images/icons8_Phone_50px.png" alt="phone icon">
@@ -38,7 +38,7 @@ import { ContextService } from '../shared';
        </div>
       </div>
     </div>
-      
+
     <ng-template #loadingOrError>
       <div class="error-plate" *ngIf="loadingError$ | async; else loading">
         <mat-icon>warning</mat-icon>
