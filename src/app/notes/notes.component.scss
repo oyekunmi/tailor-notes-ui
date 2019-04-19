@@ -1,28 +1,76 @@
-:host{
-  .notes-list{
-    padding: 0 10px;
-    display: grid;
-    grid-row-gap: 10px;
-  }
+/*-------------------------------------------------------------
+  [Master stylesheet for customer notes list]
 
-  .floating-nav{
-    position: fixed;
-    bottom: 20px;
-    right:10px;
+  Version: 1.0.0
+  Date: 2/9/2019
+  Description: styles the 'Customer Notes' List
+--------------------------------------------------------------*/
 
-    a{
-      mat-icon{
-      
-        font-size: 4em;
-        // box-shadow: 2px 2px 3px #999;
-        // border-radius: 50px;
-        // background-color:#25d366;
-        color:#25d366;
-        fill: white;
-        height: auto;
-        width: auto;
+.note-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  min-height: 100vh;
+
+  .customers-detail {
+    display: flex;
+    background: url(../../assets/images/detail_bg.png) no-repeat;
+    background-position: 95% 50%;
+
+    img {
+      margin: 5px 5px 0 8px;
+    }
+
+    .name-and-phone {
+      height: 100%;
+      color: #A19797;
+      align-self: center;
+
+      span {
+        display: block;
+
+        &:nth-child(1) {
+          text-transform: uppercase;
+          margin-bottom: 5px;
+          font-size: 18px;
+          line-height: 22px;
+        }
+
+        &:nth-child(2) {
+          font-size: 10px;
+          line-height: 12px;
+        }
       }
     }
-    
   }
+
+  .customer-actions {
+    display: flex;
+    justify-content: center;
+    background: rgba(96, 180, 216, 0.5);
+    height: 33px;
+    margin-top: 1rem;
+    opacity: 0.5;
+
+    div {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+  }
+
+  .customers-expectation {
+    font-size: 8px;
+    line-height: 8px;
+    color: #A19797;
+    text-align: center;
+  }
+
 }

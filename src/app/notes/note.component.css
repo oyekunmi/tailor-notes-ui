@@ -1,0 +1,49 @@
+article.note-teaser {
+  background: #fff;
+  -webkit-box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px;
+  border-radius: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 9fr;
+      grid-template-columns: 1fr 9fr;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+article.note-teaser .note-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+article.note-teaser .note-image mat-icon {
+  font-size: 3em;
+  height: auto;
+  width: auto;
+}
+
+article.note-teaser .note-summary {
+  margin-top: 5px;
+}
+
+article.note-teaser .note-full {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: solid thin #2AA330;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 5px;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+}
+/*# sourceMappingURL=note.component.css.map */

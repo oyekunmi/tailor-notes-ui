@@ -5,56 +5,63 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
-  template: `
+selector: 'app-header',
+providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}],
+template: `
 
-  <div id="page-header">
+<div id="page-header">
 
-    <div class="first-row row">
-      
-      <div class="item" *ngIf="showBackBtn$ | async">
-        <a mat-icon-button class="menu-toggle" (click)="toggleNav()">
-          <!-- <mat-icon >reorder</mat-icon> -->
-        </a>
+  <div class="header-content">
 
-        <a mat-icon-button class="menu-toggle" (click)="goBack()" >
-          <mat-icon>arrow_back</mat-icon>
-        </a>
+    <div class="item" *ngIf="showBackBtn$ | async">
+      <a mat-icon-button class="menu-toggle" (click)="toggleNav()">
+        <!-- <mat-icon >reorder</mat-icon> -->
+      </a>
 
-      </div>
-  
-      <div class="logo item">
-        T
-      </div>
+      <a mat-icon-button class="menu-toggle" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </a>
 
-      <div class="search item">
-
-        <a mat-icon-button class="menu-toggle"  (click)="toggleNav()">
-          <mat-icon >settings</mat-icon>
-        </a>
-       
-      </div>
     </div>
 
+    <div class="search item">
+      <a mat-icon-button class="menu-toggle" (click)="toggleNav()">
+        <div class="menu-btn">
+          <div class="app-menu">
+            <span><hr></span>
+            <span><hr></span>
+            <span><hr></span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="page-title"><span>Customer List</span></div>
+
+    <div class="action-btn">
+    <ng-content></ng-content>
+    </div>
   </div>
-  `,
-  styleUrls: ['./header.component.scss']
+
+</div>
+`,
+styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent{
 
-  public title$: Subject<string> = this.appContext.moduleTitle;
+public title$: Subject<string> = this.appContext.moduleTitle;
   public showBackBtn$: Subject<boolean> = this.appContext.showBackBtn;
 
-  constructor(private appContext: ContextService, private location: Location, private router: Router) {}
+    constructor(private appContext: ContextService, private location: Location, private router: Router) {}
 
-  toggleNav(){
+    toggleNav(){
     this.appContext.sidebarState.next(true);
-  }
+    }
 
-  goBack(){
+    goBack(){
     // this.location.back(); @TODO: Make this work on cordova
     this.router.navigateByUrl("notes");
-  }
+    }
 
-}
+    }
