@@ -8,7 +8,7 @@ export class SearchPipe implements PipeTransform {
   transform(value: any, args?: any): any {
     // retu
     console.log('VALUEEEEEEEE');
-    console.log(value)
+    console.log(value);
     if(!value) { return null; }
       if(!args) { return value; }
 
